@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/style.css">
+    <title>Tak Oi Booking Room | ICT SBA</title>
+</head>
+<body>
+    <div class="bgimage"></div>
+    <div class="content">
+        <div class="row align-items-start">
+
+            <form class="form" style="top: 10%" action="/register" method="POST">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Sign Up</h3>
+                        <br>
+                        <h6 class="card-subtitle mb-2 text-muted">Name</h6>
+                        <div class="input-group mb-3">
+                            <input type="text" name="firstname" class="form-control" placeholder="Enter your first name" aria-label="firstname" aria-describedby="basic-addon2" required>
+                            <input type="text" name="lastname" class="form-control" placeholder="Enter your last name" aria-label="lastname" aria-describedby="basic-addon2" required>
+                        </div>
+
+                        <h6 class="card-subtitle mb-2 text-muted">Email</h6>
+                        <div class="input-group mb-3">
+                            <input type="text" name="email" class="form-control" placeholder="Enter your school email" aria-label="email" aria-describedby="basic-addon2" required>
+                            <span class="input-group-text" id="basic-addon2">@takoi.edu.hk</span>
+                        </div>
+                        <div class="form-check form-check-inline">
+
+                            <h6 class="card-subtitle mb-2 text-muted">Date of birth</h6>
+                            <input type="date" name="dob" min="2003-01-01" max="2022-12-31" required>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <h6 class="card-subtitle mb-2 text-muted">Gender</h6>
+                            <input type="radio" class="btn-check" name="gender" value="F" id="gender_f" checked>
+                            <label class="btn btn-outline-primary" for="gender_f">Female</label>
+                            <input type="radio" class="btn-check" name="gender" value="M" id="gender_m">
+                            <label class="btn btn-outline-primary" for="gender_m">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <h6 class="card-subtitle mb-2 text-muted">Role</h6>
+
+                            <input type="radio" value="student" class="btn-check" name="role" id="student" checked>
+                            <label class="btn btn-outline-primary" for="student">Student</label>
+                            <input type="radio" value="teacher" class="btn-check" name="role" id="teacher" >
+                            <label class="btn btn-outline-primary" for="teacher">Teacher</label>
+                            <input type="radio" value="staff" class="btn-check" name="role" id="staff" >
+                            <label class="btn btn-outline-primary" for="staff">Staff</label>
+                        </div>
+
+                        <br>
+                        <br>
+
+                        <h6 class="card-subtitle mb-2 text-muted">Password</h6>
+                        <input type="password" name="password" class="form-control" id="formGroupExampleInput" placeholder="Enter your paaword" required>
+                        <br>
+                        <h6 class="card-subtitle mb-2 text-muted">Confirm password</h6>
+                        <input type="password" name="confirmPassword" class="form-control" id="formGroupExampleInput2" placeholder="Re-enter your paaword" required>
+                        <br>
+
+                        <input type="submit" value="Sign up" class="btn btn-outline-secondary" style="float: right;"/>
+                        <br>
+                        {{#if message}}
+                            <h6 class="alert alert-danger mt-4">{{message}}</h6>
+                        {{/if}}
+                        <br>
+                        <p style="text-align: center;">Already have account? <a href="/">Login Now</a></p>
+                    </div>
+                </div>
+
+            </form>
+                <div id="item">
+                    <img src="logo.png" height="100px">
+                    <h1>Room Booking <br>System</h1>
+                </div>
+        </div>
+
+    </div>
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>

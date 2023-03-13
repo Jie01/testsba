@@ -1,0 +1,56 @@
+body{
+    height: 100%;
+
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+.bgimage {
+/* The image used */
+background-image: url("takoi.jpeg");
+
+/* Add the blur effect */
+filter: blur(12px);
+-webkit-filter: blur(12px);
+opacity: 0.7;
+
+/* Full height */
+height: 100vh;
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}  
+
+.content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vh;
+
+}
+
+#item{
+    padding-top: 30px;
+    padding-left: 30px;
+    aspect-ratio: 1 / 1;
+    height: 80vh;
+    -webkit-clip-path: polygon(0 0, 0 80vh, 80vh 0, 0 0);
+    background: #e91e62bd;
+    z-index: 99;
+    }
+
+.form{
+    position: absolute;
+    width: 100%;
+
+    top: 30%;
+    left: 55%;
+    z-index: 0;
+}
+.card-title{
+    text-align: center;
+}
