@@ -112,29 +112,23 @@ app.post('/', async (request, response)=>{
         // console.log(cmd);
         // getbydb(cmd);
         
-        response.render('booking',{
-            sid: results[0]['SID'],
-            firstname: results[0]['firstName'],
-            lastname: results[0]['lastName'],
-            email: results[0]['email'],
 
-        });
         cmd = "SELECT * FROM room";
         getbydb(cmd).then((v)=>{
             let text = "";
-            for (info in v){
-               text += `<div class="col-md-4">
+            for (index in v){
+                console.log(v[index])
+               text += `<div class="col-6 col-sm-3">
                             <div class="outer">
                                     <a href="single.html">
+                                    <img src="itembg.jpg" alt="background image" style="max-width:100%;">
                                         <div class="upper">
                                             <div class="innertext"> 
-                                                <h4>${info.name}</h4>
+                                                <h4>${v[index].name} - ${v[index].floor}/F</h4>
                                             </div>
                                             </div>
                                         <div class="lower">
-                                            <h3>狂歡派對（旅行篇） - 11月</h3>
-                                            <span><i class="fas fa-map-marker-alt"></i> ${info.floor}/F</span>
-                                            <span><i class="far fa-clock"></i>${info.description}</span>
+                                            <span><i class="far fa-clock"></i>${v[index].description}</span>
                                         </div>
                                     </a>
 
@@ -155,8 +149,15 @@ app.post('/', async (request, response)=>{
             //     // allroomDescrip: v.map(item => connection.escape(item.description)),
 
             // });
-            response.send(text);
+            // response.send(text);
+            response.render('booking',{
+                sid: results[0]['SID'],
+                firstname: results[0]['firstName'],
+                lastname: results[0]['lastName'],
+                email: results[0]['email'],
+                rendered: text,
 
+            });
         });
     
     });

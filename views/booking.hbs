@@ -33,28 +33,23 @@
                         <a class="nav-link" href="#">FAQ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">救救Kitty Au</a>
+                        <a class="nav-link" href="#">Donate and save Kitty Au</a>
                     </li>
                     
                 </ul>
 
                 </div>
-                <a href="#" >{{firstname}} {{lastname}}</a>
+                welcome<a href="#" > {{firstname}} {{lastname}}</a>
             </div>
         </nav>
 </header>
+<div style="height: 100px"></div>
     <div class="content">
-        <div class="row align-items-start">
-            <section id="lastest">
                 <div class="container">
-                    <div class="row">
                         <div class="col-md-12 text-center"> 
-                            <h3>Available for reservation</h3>
-                            <div class="row"></div>
-                        
-                            <div id="demo"></div>
+                            <h3>Available for reservation</h3>                        
                         </div>
-                    </div>
+                        <div id="output" class="row"></div>
                     {{!-- <div class="row">
                         <div class="col-md-4">
                             <div class="outer">
@@ -115,17 +110,19 @@
                         </div>
                     </div> --}}
                 </div>
-            </section>
-
-
-        </div>
 
     </div>
 
+<div id="recieve">{{rendered}}</div>
 
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-
+    <script>
+        s = document.getElementById("recieve").innerText;
+        console.log(s);
+        document.getElementById("output").innerHTML = s;
+        document.getElementById("recieve").innerText = "";
+    </script>
 
 </body>
 </html>
