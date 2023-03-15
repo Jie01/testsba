@@ -10,4 +10,8 @@ router.get('/register', function (req, res) {
     res.render('register');
 });
 
+router.get('/single', function (req, res) {
+    res.render('single');
+});
+
 module.exports = router;

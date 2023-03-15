@@ -4,6 +4,7 @@ const path = require("path");
 const express = require("express");
 const app = express();
 const connection = require('./routes/sqlcontroller');
+const nodemailer = require('nodemailer');
 
 dotenv.config({path: './.env'})
 
@@ -76,11 +77,35 @@ app.post('/register', async (request, response)=>{
             });
         }
 
-        const values = [email, firstname, lastname, '5B', 16, gender, dob, `${email}@takoi.edu.hk`,  password];
+        usergmail = `${email}@takoi.edu.hk`;
+
+        let mailTransporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.GMAILACC,
+                pass: process.env.GMAILPASS
+            }
+        });
+        let mailDetails = {
+            from: process.env.GMAILACC,
+            to: usergmail,
+            subject: 'Successfully registered!',
+            text: `Please check the detail of your account to ensure that there are not any mistake in it. \nSID: ${email}\nName: ${lastname} ${firstname}\nGender: ${gender}\nDate of Birth: ${dob}\nPosition: ${role}\nGmail: ${usergmail} `
+        };
+         
+        mailTransporter.sendMail(mailDetails, function(err, data) {
+            if(err) {
+                console.log(err);
+            } else {
+                console.log('Email sent successfully');
+            }
+        });
+        
+        const values = [email, firstname, lastname, '5B', 2, gender, dob, usergmail,  password];
         cmd = "INSERT INTO " + role + " (" + studentCol + ") VALUES (" + connection.escape(values) + ")";
         console.log(cmd);
         getbydb(cmd);
-        response.send("form recieved<br><a href='/'>Back to login page</a>");
+        response.send("<h1>Form recieved</h1><br><h2>A confirmed gmail is sent to your gmail. Please check the detail of your account</h2><br><a href='/'><h4>Back to login page<h4></a>");
                 
     });
 
@@ -118,16 +143,12 @@ app.post('/', async (request, response)=>{
             let text = "";
             for (index in v){
                 console.log(v[index])
-               text += `<div class="col-6 col-sm-3">
+               text += `<div class="col-6 col-sm-4">
                             <div class="outer">
-                                    <a href="single.html">
+                                    <a href="/single" class="roomitem">
                                     <img src="itembg.jpg" alt="background image" style="max-width:100%;">
                                         <div class="upper">
-                                            <div class="innertext"> 
-                                                <h4>${v[index].name} - ${v[index].floor}/F</h4>
-                                            </div>
-                                            </div>
-                                        <div class="lower">
+                                            <h4>${v[index].name} - ${v[index].floor}/F</h4>
                                             <span><i class="far fa-clock"></i>${v[index].description}</span>
                                         </div>
                                     </a>
