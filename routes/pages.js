@@ -1,3 +1,4 @@
+const { text } = require("express");
 const express = require("express");
 const router = express.Router();
 
@@ -11,7 +12,12 @@ router.get('/register', function (req, res) {
 });
 
 router.get('/single', function (req, res) {
-    res.render('single');
+    const text = `${req.url}`;
+    const id = text.toString().substring(text.length-4)
+    console.log(id);
+    res.render('single', {
+
+    });
 });
 
 module.exports = router;

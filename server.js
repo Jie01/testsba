@@ -145,7 +145,7 @@ app.post('/', async (request, response)=>{
                 console.log(v[index])
                text += `<div class="col-6 col-sm-4">
                             <div class="outer">
-                                    <a href="/single" class="roomitem">
+                                    <a href="/single?${v[index].RID}" class="roomitem">
                                     <img src="itembg.jpg" alt="background image" style="max-width:100%;">
                                         <div class="upper">
                                             <h4>${v[index].name} - ${v[index].floor}/F</h4>
