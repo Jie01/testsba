@@ -8,11 +8,22 @@ const connection = mysql.createPool({
     password: process.env.DBPASSWORD,
     database: process.env.DATABASE, 
     port: '3306', 
+    connectionLimit: 10
+
     // here you can set connection limits and so on
 });
+connection.on('error', function() {
+    console.log('error occur on connection');
+});
+
 console.log(process.env.DBPASSWORD);
-// connection.connect(function(err) {
-//     if (err) throw err
-//     console.log('connected')
-//   })
-module.exports = connection;
+
+module.exports.text2sql = (text)=> connection.escape(text);
+
+module.exports.connectDB =  async function toConnectDB(cmd){
+    const con = await connection.getConnection();      
+
+    const row = await con.query(cmd);
+    con.release();
+    return row;
+}

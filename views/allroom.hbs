@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/booking.css">
+    <title>Tak Oi Booking Room | ICT SBA</title>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar fixed-top navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src='logo.png' height="70px"> </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                   
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Donate and save Kitty Au</a>
+                    </li>
+                    
+                </ul>
+
+                </div>
+                welcome<a href="#" > {{firstname}} {{lastname}}</a>
+            </div>
+        </nav>
+</header>
+<div style="height: 150px"></div>
+    <div>
+                <div class="container">
+                        <div class="col-md-12 text-center"> 
+                            <h3>Available for reservation</h3>                        
+                        </div>
+                        <br>
+                        <div id="output" class="row"></div>
+                    {{!-- <div class="row">
+                        <div class="col-md-4">
+                            <div class="outer">
+                                <a href="single.html">
+                                    <div class="upper">
+                                        <img src="pictures/inner.png">
+                                        <div class="innertext"> 
+                                            <span>可報名</span>
+                                            <h4>男： HKD380  女： HKD280</h4>
+                                        </div>
+                                        </div>
+                                    <div class="lower">
+                                        <h3>狂歡派對（旅行篇） - 11月</h3>
+                                        <span><i class="fas fa-map-marker-alt"></i> 香港銅鑼灣怡和街2-6號 英光大廈 7樓全層</span>
+                                        <br>
+                                        <span><i class="far fa-clock"></i> Nov 03, 2018 08:00PM</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="outer">
+                                <a href="/single.html">
+                                    <div class="upper">
+                                        <img src="pictures/inner.png">
+                                        <div class="innertext"> 
+                                            <span>可報名</span>
+                                            <h4>男： HKD380  女： HKD280</h4>
+                                        </div>
+                                        </div>
+                                    <div class="lower">
+                                        <h3>狂歡派對（旅行篇） - 11月</h3>
+                                        <span><i class="fas fa-map-marker-alt"></i> 香港銅鑼灣怡和街2-6號 英光大廈 7樓全層</span>
+                                        <br>
+                                        <span><i class="far fa-clock"></i> Nov 03, 2018 08:00PM</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="outer">
+                                <a href="single.html">
+                                    <div class="upper">
+                                        <img src="pictures/inner.png">
+                                        <div class="innertext"> 
+                                            <span>可報名</span>
+                                            <h4>男： HKD380  女： HKD280</h4>
+                                        </div>
+                                        </div>
+                                    <div class="lower">
+                                        <h3>狂歡派對（旅行篇） - 11月</h3>
+                                        <span><i class="fas fa-map-marker-alt"></i> 香港銅鑼灣怡和街2-6號 英光大廈 7樓全層</span>
+                                        <br>
+                                        <span><i class="far fa-clock"></i> Nov 03, 2018 08:00PM</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div> --}}
+                </div>
+
+    </div>
+
+<div id="recieve">{{rendered}}</div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script>
+        s = document.getElementById("recieve").innerText;
+        console.log(s);
+        document.getElementById("output").innerHTML = s;
+        document.getElementById("recieve").innerText = "";
+    </script>
+
+</body>
+</html>

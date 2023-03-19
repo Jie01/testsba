@@ -34,3 +34,34 @@ a{
 .btn-lg{
     margin: 10px 0px;
 }
+
+.intro img{
+    max-width:100%;
+}
+
+
+.bgimage {
+    /* The image used */
+    background-image: url("takoi.jpeg");
+    
+    /* Add the blur effect */
+    filter: blur(12px);
+    -webkit-filter: blur(12px);
+    opacity: 0.7;
+    
+    /* Full height */
+    height: 100vh;
+    
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: repeat-y;
+    background-size: cover;
+    }  
+
+.content{
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+
+}

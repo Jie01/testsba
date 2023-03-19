@@ -45,40 +45,48 @@
     <div style="height: 150px"></div>
 
                 <section id='intro'>
-                        
-                        <img src="itembg.jpg" alt="image">
                         <div class='container'>
+                        <h3>Preview</h3>
                             <div class='row'>
-                                <div class='col-md-12'>
+                                <div class='col-md-4'>
+                                    <img src="itembg.jpg" alt="image">
+                                </div>
+                                <div class='col-md-4'>
+                                    <img src="itembg.jpg" alt="image">
+                                </div>
+                                <div class='col-md-4'>
+                                    <img src="itembg.jpg" alt="image">
                                 </div>
                             </div>
                         </div>
                         </div>
                         
                     </section>
+                    <hr>
                     <section id='singlecontent'>
                         <div class="container">
                             <div class='row'>
                                 <div class='col-md-8'>
-                                    <h1> <span class='thetag'>TITLE</span></h1>
+                                    <h1> <span class='thetag'>{{name}}</span></h1>
                                     <p>
-                                        Floor: <br>
+                                        Floor: {{floor}}/F<br>
                                     </p>
                                     <h4>Description</h4>
-                                    <p class='lead'>Description of room </p>
+                                    <p class='lead'>{{description}}</p>
 
                                 </div>
                                 <div class='col-md-4'>
                                     <div class='apply'>
-                                        <h5><i class="far fa-calendar-check"></i> 立即報名</h5>
+                                        <p class='lead'>Can be booked by students: <b><i class="far fa-calendar-check"></i>{{studentAvailable}}</b></p> 
+                                        <p class='lead'>Maximum number of people: <b><i class="far fa-calendar-check"></i>{{peoplelimit}}</b></p> 
                                         <hr>
-                                        <a class="btn btn-primary btn-lg" href="#" role="button">Booking room now</a>
-                                        <a class="btn btn-primary btn-lg" href="#" role="button">Check Current Availability</a>
-                                        <a class="btn btn-primary btn-lg" href="#" role="button">Rules for using the room</a>
+                                        <a class="btn btn-primary btn-lg" href="/booking?{{RID}}" role="button">Booking room now</a>
+                                        <a class="btn btn-success btn-lg" href="#" role="button">Check Current Availability</a>
+                                        <a class="btn btn-warning btn-lg" href="#" role="button">Rules for using the room</a>
                                     </div>
                                     <div class='applybelow'>
                                     <p>Have any diffculty? Welcome to contact us</p>
-                                    <a href='#' class='btn2'>Contact number: (852) 1234-1234</a>
+                                    <a href='#' class='btn2'>Contact number: (852) 2323 8504</a>
                                     </div>
                                 </div>
                             </div>
