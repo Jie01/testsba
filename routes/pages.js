@@ -1,4 +1,4 @@
-const { text } = require("express");
+
 const express = require("express");
 const router = express.Router();
 var functions = require("./kglobal.js");
@@ -35,8 +35,50 @@ router.get('/single', function (req, res) {
     });
 });
 
+router.get('/timetable', function (req, res) {
+    getroom = roommodel.getdata();
+
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1; // Months start at 0!
+    let dd = today.getDate();
+    
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+    
+    const nowdate = yyyy + '-' + mm + '-' + dd;
+    
+    const cmd = "SELECT bpID, useDate, starttime, endtime FROM bookingInfo WHERE RID = '"+getroom.RID+"' AND useDate >= '" + nowdate + "' ORDER BY useDate";
+    console.log(cmd);
+    let text = "";
+    functions.getbydb(cmd).then((v)=>{
+        for (let index=0; index< v.length; index++){
+
+            text += `<p class='lead'>${v[index].useDate.toLocaleDateString()} : ${v[index].starttime} - ${v[index].endtime} is booked</p>`;
+            if(index <= v.length-2){
+
+                if(v[index].useDate.getTime() != v[index+1].useDate.getTime()){
+                    text += '<hr>';
+                }
+            }
+        }
+        res.render('timetable', {
+            allusedTime: text,
+        });
+    });
+});
+
 router.get('/allroom', function (req, res) {
-    cmd = "SELECT * FROM room";
+
+    switch (global.userdata[0]){
+        case 'student':
+            cmd = "SELECT * FROM room WHERE studentAvailable = 1";
+            break;
+        case 'teacher':
+            cmd = "SELECT * FROM room";
+
+    }
+
     functions.getbydb(cmd).then((v)=>{
         let text = "";
         for (index in v){

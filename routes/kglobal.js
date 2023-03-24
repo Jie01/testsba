@@ -8,7 +8,15 @@ module.exports.getbydb = async function getbydb(command) {
 } 
 
 module.exports.getcate = async function getcate() {
-    const [rows] = await connectFunc.connectDB("SELECT * FROM bookingCategory");
+    switch (global.userdata[0]){
+        case 'student':
+            cmd = "SELECT * FROM bookingCategory WHERE studentAvailable = 0";
+            break;
+        case 'teacher':
+            cmd = "SELECT * FROM bookingCategory";
+
+    }
+    const [rows] = await connectFunc.connectDB(cmd);
     console.log(rows);
     return rows;
 } 
